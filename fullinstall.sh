@@ -31,7 +31,7 @@ fi
 read -p "Do you want to install Portainer? (y/n) " install_portainer
 if [[ $install_portainer =~ ^[Yy]$ ]]; then
     docker volume create portainer_data
-    docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+    docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 fi
 
 # Ask if the user wants to create a new sudo user
