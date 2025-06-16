@@ -136,6 +136,35 @@ Execute the file:
 ./fulldockgeinstall.sh
 ```
 
+## Install Using Root (includes Tailscale) 
+
+To install the newest versions of sudo (optional depending on which script you use), curl, Docker, and docker compose, simply ssh into your server, then clone this repository with: 
+
+```
+git clone https://github.com/Helmpupper/dockerinstall.git
+```
+If you don't have git installed, you can run:
+```
+apt install git
+```
+
+Change into the new directory:
+```
+cd dockerinstall
+```
+
+Make the file executable:
+```
+chmod +x fullinstall_tailscale.sh
+```
+
+Execute the file:
+```
+./fullinstall_tailscale.sh
+```
+
+The Bash Script Explained
+
 The Bash Script Explained
 ===
 
