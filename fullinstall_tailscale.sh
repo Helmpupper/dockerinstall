@@ -34,6 +34,11 @@ if [[ $install_portainer =~ ^[Yy]$ ]]; then
     docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 fi
 
+read -p "Do you want to install Portainer-Agent? (y/n) " install_portainer
+if [[ $install_portainer =~ ^[Yy]$ ]]; then
+   docker run -d -p 9001:9001 --name portainer-agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes -v /:/host portainer/agent:2.27.4
+fi
+
 read -p "Do you want to install Tailscale? (y/n) " install_tailscale
 if [[ $install_tailscale =~ ^[Yy]$ ]]; then
     curl -fsSL https://tailscale.com/install.sh | sh
